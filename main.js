@@ -1,16 +1,25 @@
 canvas = document.getElementById('myCanvas');
  ctx = canvas.getContext("2d");
  nasa_mars_images_array = ["1000MR0044631300503690E01_DXXX.jpg","FLB_486265257EDR_F0481570FHAZ00323M_.jpeg","FRB_486265257EDR_F0481570FHAZ00323M_.jpeg"]
-random_number = Math.floor(Math.random()*);
-console.log (random_number);
+random_number = Math.floor(Math.random()*3);
+console.log ();
  rover_width = 100;
 rover_height = 90;
-background_image = "mars.jpg";
+background_image = nasa_mars_images_array[random_number];
+console.log ("background_image = " + background_image);
 rover_image = "rover.png";
 rover_x = 10;
 rover_y = 10;
-function add() { background_imgTag = new Image(); 
-    function uploadBackground() 
+function add() 
+{
+     background_imgTag = new Image();
+     background_imgTag.onload = uploadBackground; 
+    background_imgTag.src = background_image;
+    rover_imgTag = new Image();
+     rover_imgTag.onload = uploadrover; 
+    rover_imgTag.src = rover_image;
+     function uploadBackground()
+
     {
          ctx.drawImage(background_imgTag, 0, 0, canvas.width, canvas.height);
          }
